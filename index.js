@@ -36,6 +36,14 @@ const userQuestions = () => {
             message: 'How should a user test this application?'
         },
         {
+            type: 'checkbox',
+            name: 'license',
+            message: 'Would you like to add a license?',
+            choices:[
+                
+            ]
+        },
+        {
             type: 'input',
             name: 'github',
             message: 'Please enter your gitHub url'
@@ -49,7 +57,7 @@ const userQuestions = () => {
     return response;
  }
 
- const generateReadme = ({title, description, installation, usage, contribution, test, github, email}) =>
+ const generateReadme = ({title, description, installation, usage, contribution, test, github, email, license}) =>
 `# ${title}
 
 ## Description
