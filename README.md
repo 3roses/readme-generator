@@ -1,8 +1,8 @@
-# sdf
+# Readme generator
 
-## Description  undefined
+## Description
 
-sdf
+This will generat a markdown file titled README.md
 
 ## Table of Contents
 
@@ -15,26 +15,26 @@ sdf
 
 ## Installation <a name="installation"></a>
 
-sdf
+The user must have inquirer installed as a dependency and run node index.js in the terminal.
 
 ## Usage Information <a name="usage"></a>
 
-sdf
+To generate a README file
 
 ## Contribution Guidelines <a name="contribution"></a>
 
-sdf
+Bekind to others. Work in a remote branch.
 
 ## Test Instructions <a name="test"></a>
 
-sdf
+Open the terminal and run node index.js and answer the prompted questions, and check out the file created.
 
 ## Licenses <a name="license"></a>
 
-Apache 2.0,The MIT License,BSD 3-Clause License,BSD 2-Clause License
+Apache 2.0,The MIT License
 
 ## Questions <a name="questions"></a>
 
-[GitHub](sdf)<br>
-[Email](mailto:sdf)
+[GitHub](github.com/3roses)<br>
+[Email](mailto:cleslie25@gmail.com)
 
