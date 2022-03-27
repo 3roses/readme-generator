@@ -1,10 +1,13 @@
 
 const inquirer = require('inquirer');
 const fs = require('fs');
+let badgeURL;
+var response;
+
 
 const userQuestions = () => {
     //gather info and format data for writing
-    var response = inquirer.prompt([
+    response = inquirer.prompt([
         {
             type: 'input',
             name: 'title',
@@ -40,7 +43,17 @@ const userQuestions = () => {
             name: 'license',
             message: 'Would you like to add a license?',
             choices:[
-                
+                'Apache 2.0',
+                'Boost Software License 1.0',
+                'The MIT License',
+                'Mozilla Public License 2.0',
+                'BSD 3-Clause License',
+                'BSD 2-Clause License',
+                'GNU GPL v3',
+                'GNU GPL v2',
+                'GNU AGPL v3',
+                'GNU LGPL v3',
+                'GNU FDL v1.3',
             ]
         },
         {
@@ -57,7 +70,7 @@ const userQuestions = () => {
     return response;
  }
 
- const generateReadme = ({title, description, installation, usage, contribution, test, github, email, license}) =>
+ const generateReadme = ({title, description, installation, usage, contribution, test, github, email, license, badgeURL}) =>
 `# ${title}
 
 ## Description
@@ -71,6 +84,7 @@ ${description}
 3. [Contribution Guidelines](#contribution)
 4. [Test Instructions](#test)
 5. [Questions](#questions)
+6. [License](#license)
 
 ## Installation <a name="installation"></a>
 
@@ -88,6 +102,10 @@ ${contribution}
 
 ${test}
 
+## Licenses <a name="license"></a>
+
+${license}
+
 ## Questions <a name="questions"></a>
 
 [GitHub](${github})<br>
@@ -95,12 +113,39 @@ ${test}
 
 `;
 
+
+
  const initReadme = () => {
     userQuestions()
+    // .then((response) => getBadges(response))
       // Use writeFileSync method to use promises instead of a callback function
+    //   console.log(response[6].choices)
       .then((response) => fs.writeFileSync('README.md', generateReadme(response)))
       .then(() => console.log('Successfully wrote to README.md'))
+    //   .then(() => console.log(promise))
       .catch((err) => console.error(err));
   };
   
   initReadme();
+
+
+
+
+  
+  function getBadges (){
+    var badges = [
+        {
+            type: 'Apache 2.0',
+            image: 'https://img.shields.io/badge/License-Apache_2.0-blue.svg'
+        },
+        {
+            type: 'Boost Software License 1.0',
+            image: 'https://img.shields.io/badge/License-Boost_1.0-lightblue.svg'
+        }
+    ]
+  
+      if (license === badges.type){
+          badgeURL = badges.image
+      }
+      return badgeURL
+  }
